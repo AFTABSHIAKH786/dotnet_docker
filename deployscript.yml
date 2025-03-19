@@ -33,7 +33,7 @@
     - name: Build Docker image for Dotnet App using Dockerfile
       shell: docker build -t dotnetapp:latest /tmp/dotnet_docker_build/
 
-    - name: Run Docker container for Angular App
+    - name: Run Docker container for Dotnet  App
       docker_container:
         name: dotnetapp
         image: dotnetapp:latest

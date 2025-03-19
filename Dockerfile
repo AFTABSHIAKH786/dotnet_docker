@@ -9,7 +9,6 @@ COPY ./publish .
 
 # Expose ports for the application
 EXPOSE 80
-EXPOSE 443
 
 # Start the application
 ENTRYPOINT ["dotnet", "AspnetCoreMvcFull.dll"]
