@@ -1,0 +1,31 @@
+---
+- name: Dotnet Docker deployment
+  hosts: aayush_ubuntu
+  become: yes
+  tasks: 
+    - name: Ensure Docker service is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Remove existing Docker container if running
+      docker_container:
+        name: dotnetapp
+        state: absent
+
+    - name: Clean up old Docker images
+      shell: docker image prune -f
+      ignore_errors: yes
+
+    - name: Upload the latest build to the server
+      copy:
+        src: /home/shaikh-aftab/Desktop/jenkins/workspace/dotnet_docker/publish
+        dest: /tmp/dotnet_docker_build/
+        mode: "0755"
+
+    - name: Upload Dockerfile to the server
+      copy:
+        src: ./Dockerfile
+        dest: /tmp/dotnet_docker_build/
+        mode: "0755"
