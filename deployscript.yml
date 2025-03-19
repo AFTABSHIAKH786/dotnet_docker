@@ -20,7 +20,7 @@
 
     - name: Upload the latest build to the server
       copy:
-        src: /var/lib/jenkins/workspace/test/publish
+        src: /var/lib/jenkins/workspace/test@2/publish
         dest: /tmp/dotnet_docker_build/
         mode: "0755"
 
