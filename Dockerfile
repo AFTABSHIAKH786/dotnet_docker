@@ -8,7 +8,7 @@ WORKDIR /tmp/dotnet_docker_build
 COPY ./publish .
 
 # Expose ports for the application
-EXPOSE 5000
+EXPOSE 8080
 
 # Start the application
 ENTRYPOINT ["dotnet", "AspnetCoreMvcFull.dll"]
