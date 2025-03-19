@@ -29,3 +29,15 @@
         src: ./Dockerfile
         dest: /tmp/dotnet_docker_build/
         mode: "0755"
+
+    - name: Build Docker image for Dotnet App using Dockerfile
+      shell: docker build -t dotnetapp:latest /tmp/dotnet_docker_build/
+
+    - name: Run Docker container for Angular App
+      docker_container:
+        name: dotnetapp
+        image: dotnetapp:latest
+        state: started
+        ports:
+          - "6969:6969"
+        restart_policy: always
