@@ -39,5 +39,5 @@
         image: dotnetapp:latest
         state: started
         ports:
-          - "6969:6969"
+          - "6969:80"
         restart_policy: always
